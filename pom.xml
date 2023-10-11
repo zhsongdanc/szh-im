@@ -12,6 +12,7 @@
         <module>szh-im-common</module>
         <module>szh-im-simple</module>
         <module>netty-examples</module>
+        <module>netty-file-server</module>
     </modules>
 
     <properties>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>example-4</artifactId>
+    <artifactId>example-3-sender-packing</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
