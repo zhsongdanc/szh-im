@@ -1,24 +1,22 @@
-package com.szh;
+package com.szh.idle;
 
-import com.szh.handler.MyHandler;
+import com.szh.handler.MyServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
-import io.netty.handler.stream.ChunkedWriteHandler;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.timeout.IdleStateHandler;
 
 /*
  * @Author: demussong
  * @Description:
- * @Date: 2023/10/11 10:55
+ * @Date: 2023/10/11 13:41
  */
-public class Server5 {
-
+public class IdleServer6 {
     public static void main(String[] args) throws InterruptedException {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -31,12 +29,12 @@ public class Server5 {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
 
-                            ch.pipeline().addLast(new HttpServerCodec());
-                            // todo 有时间了解这个
-                            ch.pipeline().addLast(new ChunkedWriteHandler());
-                            ch.pipeline().addLast(new HttpObjectAggregator(4096));
-                            ch.pipeline().addLast(new WebSocketServerProtocolHandler("/some"));
-                            ch.pipeline().addLast(new MyHandler());
+//                            ch.pipeline().addLast(new LineBasedFrameDecoder(4096));
+                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast(new StringEncoder());
+//                            ch.pipeline().addLast(new MyServerHandler());
+                            ch.pipeline().addLast(new IdleStateHandler(3,5,6));
+                            ch.pipeline().addLast(new IdleEventHandler());
                         }
                     });
 
