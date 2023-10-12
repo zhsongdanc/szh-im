@@ -19,7 +19,7 @@ public class MyHandler extends ChannelInboundHandlerAdapter {
 
     }
 
-    //todo 这个也会触发链式处理吗
+    // 这个是否会触发链式处理，取决于handler怎么处理
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();

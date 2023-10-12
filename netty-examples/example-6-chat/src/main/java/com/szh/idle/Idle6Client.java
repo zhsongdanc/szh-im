@@ -1,6 +1,6 @@
 package com.szh.idle;
 
-import com.szh.handler.MyClientHandler;
+import com.szh.simplechat.MyClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

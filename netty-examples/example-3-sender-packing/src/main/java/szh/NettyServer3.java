@@ -24,7 +24,6 @@ public class NettyServer3 {
         try{
             serverBootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    // todo 这里使用SocketChannel?
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
@@ -32,7 +31,6 @@ public class NettyServer3 {
                             ch.pipeline().addLast(new SomeServerHandler());
                         }
                     });
-            // todo 这个channelFuture对应的channel代表哪个channel?
             ChannelFuture channelFuture = serverBootstrap.bind(9909).sync();
             System.out.println("服务器启动成功。监听的端口号为：9909");
 

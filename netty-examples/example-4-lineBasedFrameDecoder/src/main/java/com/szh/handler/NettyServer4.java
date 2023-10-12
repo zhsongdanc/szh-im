@@ -23,18 +23,16 @@ public class NettyServer4 {
         try{
             serverBootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    // todo 这里使用SocketChannel?
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
 
-                            // todo 看一下这里如果设置过小，直接异常，但不是LineBasedFrameDecoder中说的TooLongFrameException
+                            // todo 看一下这里如果实际长度大于maxLength，直接异常，但不是LineBasedFrameDecoder中说的TooLongFrameException
                             ch.pipeline().addLast(new LineBasedFrameDecoder(200));
                             ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new SomeServerHandler4());
                         }
                     });
-            // todo 这个channelFuture对应的channel代表哪个channel?
             ChannelFuture channelFuture = serverBootstrap.bind(9909).sync();
             System.out.println("服务器启动成功。监听的端口号为：9909");
 

@@ -23,8 +23,7 @@ public class SomeClientHandler extends SimpleChannelInboundHandler {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // todo 这里用Object类型？
-        // todo 下面两个的区别
+        // 下面两个的区别  ctx.channel.write 发送给真个pipeline所有handler进行处理，而ctx.write发给当前context下一个handler进行处理
 //        ctx.channel().writeAndFlush("This is client!");
         ctx.writeAndFlush("This is client!");
 

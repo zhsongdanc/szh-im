@@ -28,7 +28,6 @@ public class ChannelOutboundHandler2 extends ChannelOutboundHandlerAdapter {
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
 
         ctx.executor().schedule(() -> {
-            // todo 为什么不用下面这个方法
 //            ctx.write("");
             ctx.channel().write("hello,222!");
         }, 1L, TimeUnit.SECONDS);
@@ -44,7 +43,6 @@ public class ChannelOutboundHandler2 extends ChannelOutboundHandlerAdapter {
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
         // 只会执行一次
-        // todo 什么时候执行
         scheduledExecutorService.schedule(() -> {
             System.out.println("hello, szh!");
         }, 1L, TimeUnit.MILLISECONDS);

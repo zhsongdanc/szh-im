@@ -1,6 +1,5 @@
 package com.szh.idle;
 
-import com.szh.handler.MyServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

@@ -57,8 +57,6 @@ public class SomeServer {
 class SomeChannelInitializer extends ChannelInitializer<SocketChannel> {
 
     // 当Channel初始创建完毕后就会触发该方法的执行，用于初始化Channel
-    //todo 注意这里使用了SocketChannel
-
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         // 从Channel中获取pipeline

@@ -1,4 +1,4 @@
-package com.szh.handler;
+package com.szh.simplechat;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
