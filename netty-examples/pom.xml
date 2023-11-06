@@ -20,6 +20,7 @@
         <module>example-5-fileserver</module>
         <module>example-5-websocket</module>
         <module>example-6-chat</module>
+        <module>example-7-basic</module>
     </modules>
 
     <properties>
