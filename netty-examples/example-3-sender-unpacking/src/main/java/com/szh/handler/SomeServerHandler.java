@@ -13,6 +13,7 @@ public class SomeServerHandler extends ChannelInboundHandlerAdapter {
 
     private int counter;
 
+    // todo 客户端发送了一个字符串，收到了
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 //        System.out.println("from client " + ctx.channel().remoteAddress() + ":" + msg);

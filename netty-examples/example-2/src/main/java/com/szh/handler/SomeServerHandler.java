@@ -23,4 +23,10 @@ public class SomeServerHandler extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
     }
+
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+//        super.handlerAdded(ctx);
+        System.out.println("SomeServerHandler" + this.toString() + "被添加");
+    }
 }

@@ -104,7 +104,7 @@ public class SomeClientHandler extends SimpleChannelInboundHandler {
 
 
         ctx.channel().writeAndFlush(message);
-        ctx.channel().writeAndFlush(message);
+//        ctx.channel().writeAndFlush(message);
 
     }
 }
